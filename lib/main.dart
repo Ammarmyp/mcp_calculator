@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: Appthemedata.lightMode,
       themeMode: Appthemedata.themeMode,
       debugShowCheckedModeBanner: false,
-      routes: {"/": (context) => SimpleCalculator()},
+      routes: {"/": (context) => const SimpleCalculator()},
     );
   }
 }

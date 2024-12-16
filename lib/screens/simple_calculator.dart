@@ -1,31 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mcp_calculator/components/custom_button.dart';
+import 'package:mcp_calculator/components/display.dart';
 
 class SimpleCalculator extends StatelessWidget {
-  final List<String> buttons = [
-    'C',
-    '()',
-    '%',
-    "÷",
-    '7',
-    '8',
-    '9',
-    '/',
-    '4',
-    '5',
-    '6',
-    '*',
-    '1',
-    '2',
-    '3',
-    '-',
-    '+/-',
-    '0',
-    '=',
-    '+',
-  ];
-
-  SimpleCalculator({super.key});
+  const SimpleCalculator({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,45 +11,164 @@ class SimpleCalculator extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Paamy Calc"),
       ),
-      body: Center(
+      body: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Expanded(
-              flex: 5,
-              child: GridView.builder(
-                itemCount: buttons.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, // 4 buttons per row
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
-                ),
-                padding: const EdgeInsets.all(12),
-                itemBuilder: (context, index) {
-                  return CustomButton(
-                    label: buttons[index],
-                    // bgColor: _getButtonColor(buttons[index]),
-                    textColor: Colors.white,
-                    onPressed: () {
-                      // Add your button logic here
-                      print('Pressed: ${buttons[index]}');
-                    },
-                  );
-                },
-              ),
+            const Display(
+              value: "0",
             ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              CustomButton(
+                label: "C",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "()",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "%",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "÷",
+                onPressed: () {},
+              ),
+            ]),
+            const SizedBox(
+              height: 40,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              CustomButton(
+                label: "7",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "8",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "9",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "X",
+                onPressed: () {},
+              ),
+            ]),
+            const SizedBox(
+              height: 40,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              CustomButton(
+                label: "4",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "5",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "6",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "-",
+                onPressed: () {},
+              ),
+            ]),
+            const SizedBox(
+              height: 40,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              CustomButton(
+                label: "1",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "2",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "3",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "+",
+                onPressed: () {},
+              ),
+            ]),
+            const SizedBox(
+              height: 40,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              CustomButton(
+                label: "+/-",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "0",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: ".",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              CustomButton(
+                label: "=",
+                onPressed: () {},
+              ),
+            ]),
           ],
         ),
       ),
     );
   }
-
-  // // Get button color based on its type
-  // Color _getButtonColor(String label) {
-  //   if (label == 'C') return Colors.red;
-  //   if (label == '=' || label == '+' || label == '-' || label == '*' || label == '/') {
-  //     return Colors.orange;
-  //   }
-  //   return Colors.grey[850]!;
-  // }
 }

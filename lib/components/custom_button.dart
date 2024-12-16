@@ -15,12 +15,30 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onPressed,
+      splashColor: Colors.white.withOpacity(0.2),
+      borderRadius: BorderRadius.circular(30),
       child: Container(
         alignment: Alignment.center,
-        decoration: const BoxDecoration(),
-        child: Text(label),
+        margin: const EdgeInsets.all(1),
+        decoration: BoxDecoration(
+            color:
+                ["C", "="].contains(label) ? Colors.amber[700] : Colors.black,
+            // Background color
+            // borderRadius: BorderRadius.circular(10),
+            shape: BoxShape.circle // Rounded corners
+            ),
+        height: 60,
+        width: 60,
+        child: Text(
+          label,
+          style: TextStyle(
+            color: textColor,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
