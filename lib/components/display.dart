@@ -10,12 +10,20 @@ class Display extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.bottomRight,
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Text(
-          value!,
+    return Expanded(
+      child: Container(
+        alignment: Alignment.bottomRight,
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Text(
+              value!,
+              style: const TextStyle(
+                fontSize: 40,
+              ),
+            ),
+          ),
         ),
       ),
     );

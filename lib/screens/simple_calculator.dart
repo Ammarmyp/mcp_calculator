@@ -17,7 +17,10 @@ class SimpleCalculator extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const Display(
-              value: "0",
+              value: "234",
+            ),
+            const SizedBox(
+              height: 35,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               CustomButton(
