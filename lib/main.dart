@@ -6,19 +6,31 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isDarkTheme = false;
+
+  void toggleTheme() {
+    setState(() {
+      isDarkTheme = !isDarkTheme;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Paamy Calculator',
       darkTheme: Appthemedata.darkMode,
       theme: Appthemedata.lightMode,
-      themeMode: Appthemedata.themeMode,
+      themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
       debugShowCheckedModeBanner: false,
-      routes: {"/": (context) => const SimpleCalculator()},
+      routes: {"/": (context) => SimpleCalculator(toggleTheme: toggleTheme)},
     );
   }
 }

@@ -17,14 +17,15 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      splashColor: Colors.white.withOpacity(0.2),
+      splashColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
       borderRadius: BorderRadius.circular(30),
       child: Container(
         alignment: Alignment.center,
         margin: const EdgeInsets.all(1),
         decoration: BoxDecoration(
-            color:
-                ["C", "="].contains(label) ? Colors.amber[700] : Colors.black,
+            color: ["C", "="].contains(label)
+                ? Theme.of(context).colorScheme.secondary
+                : Theme.of(context).colorScheme.tertiary,
             // Background color
             // borderRadius: BorderRadius.circular(10),
             shape: BoxShape.circle // Rounded corners
@@ -33,8 +34,7 @@ class CustomButton extends StatelessWidget {
         width: 60,
         child: Text(
           label,
-          style: TextStyle(
-            color: textColor,
+          style: const TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
