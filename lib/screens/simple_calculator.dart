@@ -4,8 +4,9 @@ import 'package:mcp_calculator/components/custom_button.dart';
 import 'package:mcp_calculator/components/display.dart';
 
 class SimpleCalculator extends StatefulWidget {
-  final VoidCallback toggleTheme;
-  const SimpleCalculator({super.key, required this.toggleTheme});
+  const SimpleCalculator({
+    super.key,
+  });
 
   @override
   State<SimpleCalculator> createState() => _SimpleCalculatorState();
@@ -53,14 +54,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Paamy Calc"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.brightness_3_rounded),
-            onPressed: widget.toggleTheme,
-          ),
-          // IconButton(onPressed: () {}, icon: const Icon(Icons.edit_outlined))
-        ],
+        title: const Text("First Calculator"),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
@@ -68,31 +62,22 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Display(
-              value: result,
+              value: expression,
             ),
             const SizedBox(
               height: 15,
             ),
-            Display(value: expression),
+            Display(value: result),
             const SizedBox(height: 35),
-            Row(
+            const Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ElevatedButton(
-                  style: const ButtonStyle(
-                    alignment: Alignment.center,
-                  ),
-                  onPressed: toggleScientificMode,
-                  child: Text(isScientificMode ? 'Basic' : 'Scientific'),
-                ),
-              ],
+              children: [],
             ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    if (isScientificMode) _buildScientificKeyboard(),
                     basicCalculator(),
                   ],
                 ),
